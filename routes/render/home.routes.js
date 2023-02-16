@@ -6,7 +6,7 @@ router.route('/')
   .get((req, res) => {
     console.log(req.cookies.myCookie);
 
-    const { user } = res.app.locals;
+    const { user } = res.locals;
 
     User.findAll({ raw: true })
       .then((allUser) => res.renderComponent(Home, { users: allUser, authUser: user }))
